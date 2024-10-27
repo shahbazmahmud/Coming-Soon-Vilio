@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>404 - Not Found</title>
+</head>
+
+<body style="background-color: #0e0c15;">
+    <button class="button_follow_cursor absolute z-[1] w-fit rounded-2xl bg-[#805af5] px-6 py-3 text-[#FFF]">Coming
+        Soon</button>
+    <div
+        class="flex min-h-screen w-full flex-col items-center justify-center overflow-hidden max-md:px-[32px] bg-[#0e0c15]">
+        <div class="relative">
+            <h1 class="text-[190px] split_text font-medium"
+                style="background: linear-gradient(to right, #805af5, #b49bff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                Vilio</h1>
+            <div
+                class="absolute left_bounce left-[-160px] top-[70px] flex w-fit -rotate-12 flex-col items-center gap-2 rounded-[24px] bg-white p-4">
+                <svg class="circle_motion" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36"
+                    fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M19.4585 5.76742L14.6767 6.18577L15.2176 12.368L10.4636 8.37897L7.37826 12.056L12.1323 16.0451L5.94998 16.5859L6.36832 21.3677L12.5506 20.8268L8.56152 25.5807L12.2385 28.6662L16.2276 23.9121L16.7685 30.0944L21.5502 29.6761L21.0093 23.4938L25.7634 27.4829L28.8487 23.8059L24.0947 19.8168L30.277 19.2759L29.8586 14.4942L23.6763 15.0351L27.6655 10.2811L23.9885 7.19569L19.9994 11.9497L19.4585 5.76742Z"
+                        fill="#805af5" />
+                </svg>
+                <span class="font-medium text-[#333]"> Coming Soon</span>
+            </div>
+            <div
+                class="absolute right_bounce right-[-160px] top-[100px] flex w-fit rotate-12 items-center gap-2 rounded-[24px] bg-white px-4 py-2">
+                <span class="blast_anime">
+                    💥
+                </span>
+                <span class="font-medium text-[#333]">Will Blow Mind </span>
+            </div>
+            <svg class="circle_motion absolute right-[-200px] top-[160px]" xmlns="http://www.w3.org/2000/svg" width="56"
+                height="56" viewBox="0 0 56 56" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M29.5 7H26.5V20.2832L21.524 7.96722L18.7425 9.09104L23.8474 21.726L14.2114 12.0901L12.0901 14.2114L21.3257 23.447L9.35706 18.2178L8.15596 20.9669L20.8202 26.5H7V29.5H20.8202L8.15597 35.0331L9.35706 37.7822L21.3257 32.553L12.0901 41.7886L14.2114 43.9098L23.8474 34.274L18.7425 46.909L21.524 48.0327L26.5 35.7169V49H29.5V35.7169L34.476 48.0327L37.2574 46.909L32.1528 34.274L41.7886 43.9098L43.9098 41.7886L34.6742 32.553L46.643 37.7822L47.8439 35.0331L35.1799 29.5H49V26.5H35.1797L47.8439 20.9669L46.643 18.2178L34.6742 23.447L43.9098 14.2114L41.7886 12.0901L32.1528 21.726L37.2574 9.09104L34.476 7.96722L29.5 20.2832V7Z"
+                    fill="#9a9a9a" />
+            </svg>
+        </div>
+        <div class="flex flex-col items-center gap-4">
+            <h1 class="scale_text text-center text-[48px] font-medium text-[#FAFAFA] max-md:text-[36px]">Something is
+                Coming!</h1>
+            <p class="scale_text max-w-[620px] text-center text-xl text-[#9a9a9a] max-md:text-[16px]">
+                Something is coming soon, that will blow your mind in no time. Don't miss it. A Humanizer!
+            </p>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EaselPlugin.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/TextPlugin.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(EaselPlugin, TextPlugin)
+            gsap.to('.circle_motion', {
+                rotation: 360,
+                repeat: -1,
+                duration: 2,
+                yoyo: true,
+                transformOrigin: 'center center',
+                ease: 'Power4.Out',
+            })
+
+            gsap.from('.blast_anime', {
+                scale: 0,
+                rotation: 120,
+                transformOrigin: 'center center',
+                ease: 'Power4.Out',
+            })
+            // split text and animate
+            gsap.from('.split_text', {
+                y: -50,
+                opacity: 0,
+                duration: .5,
+                ease: 'Power4.Out',
+                stagger: 0.1
+            })
+            gsap.from('.scale_text', {
+                y: 20,
+                duration: .5,
+                opacity: .5,
+                ease: 'Power4.Out',
+                stagger: 0.1
+            })
+            // bounce element from left
+            gsap.from('.left_bounce', {
+                x: -40,
+                duration: .6,
+                ease: 'bounce.out',
+                stagger: 0.1
+            })
+            gsap.from('.right_bounce', {
+                x: 40,
+                duration: .6,
+                ease: 'bounce.out',
+                stagger: 0.1
+            })
+        });
+
+        // follow cursor
+        const cursor = document.querySelector('.button_follow_cursor')
+        document.addEventListener('mousemove', (e) => {
+            const maxX = window.innerWidth - 147
+            const finalX = (e.clientX > maxX) ? maxX : e.clientX
+            const minX = 66
+            const finalX2 = (e.clientX < minX) ? minX : e.clientX
+
+            const maxY = window.innerHeight - 48
+            const finalY = (e.clientY > maxY) ? maxY : e.clientY
+            const minY = 66
+            const finalY2 = (e.clientY < minY) ? minY : e.clientY
+
+            gsap.to(cursor, {
+                x: [finalX, finalX2],
+                y: [finalY, finalY2],
+                opacity: 1,
+                duration: 0.2
+            })
+            document.body.style.cursor = 'none'
+            cursor.style.cursor = 'none'
+        })
+
+    </script>
+
+</body>
+
+</html>
